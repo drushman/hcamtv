@@ -1,0 +1,28 @@
+name        = HCAMTV
+description = Theme for Hopkinton's Television Station. Created by <a href="http://kahthong.com">Leow Kah Thong</a>.
+screenshot  = screenshot.png
+version     = 6.x-1.0
+core        = 6.x
+engine      = phptemplate
+
+regions[navigation]          = Navigation
+regions[header]              = Header
+regions[main_top]            = Main top
+regions[content_top]         = Content top
+regions[content]             = Content
+regions[content_split_left]  = Content split left
+regions[content_split_right] = Content split right
+regions[content_bottom]      = Content bottom
+regions[sidebar_right]       = Sidebar right
+regions[banner_right]        = Banner right
+
+features[] = logo
+features[] = node_user_picture
+features[] = comment_user_picture
+features[] = favicon
+features[] = primary_links
+
+stylesheets[all][] = style.css
+
+scripts[] = script.js
+
