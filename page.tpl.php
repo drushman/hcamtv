@@ -1,48 +1,83 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="<?php print $language->language; ?>" lang="<?php print $language->language; ?>" dir="<?php print $language->dir; ?>" xmlns:fb="http://www.facebook.com/2008/fbml">
+<?php
 
-<head>
-  <?php print $head; ?>
-  <title><?php print $head_title; ?></title>
-  <?php print $styles; ?>
-  <!--[if lte IE 8]>
-    <style type="text/css">
-      body { behavior: url(<?php print $base_path . path_to_theme() .'/csshover3.htc'; ?>); }
-    </style>
-  <![endif]-->
-  <!--[if lte IE 6]>
-    <style type="text/css">
-      #block-views-photos-block_1 .view-content ul li .views-field-body { behavior: url(<?php print $base_path . path_to_theme() .'/iepngfix.htc'; ?>); }
-      /* ___________ IE6 IFRAME FIX ________ */
-      .ui-datepicker-cover {
-        display: none; /*sorry for IE5*/
-        display/**/: block; /*sorry for IE5*/
-        position: absolute; /*must have*/
-        z-index: -1; /*must have*/
-        filter: mask(); /*must have*/
-        top: -4px; /*must have*/
-        left: -4px; /*must have*/ /* LTR */
-        width: 200px; /*must have*/
-        height: 200px; /*must have*/
-      }
-    </style>
-    <script type="text/javascript" src="<?php print $base_path . path_to_theme() .'/iepngfix-tilebg.js'; ?>"></script>
-  <![endif]-->
-  <?php print $scripts; ?>
-</head>
-<body class="<?php print hcamtv_body_class($is_front, $logged_in, $is_admin, $node, $sidebar_right, $banner_right); ?>">
+/**
+ * @file
+ * Default theme implementation to display a single Drupal page.
+ *
+ * The doctype, html, head and body tags are not in this template. Instead they
+ * can be found in the html.tpl.php template in this directory.
+ *
+ * Available variables:
+ *
+ * General utility variables:
+ * - $base_path: The base URL path of the Drupal installation. At the very
+ *   least, this will always default to /.
+ * - $directory: The directory the template is located in, e.g. modules/system
+ *   or themes/bartik.
+ * - $is_front: TRUE if the current page is the front page.
+ * - $logged_in: TRUE if the user is registered and signed in.
+ * - $is_admin: TRUE if the user has permission to access administration pages.
+ *
+ * Site identity:
+ * - $front_page: The URL of the front page. Use this instead of $base_path,
+ *   when linking to the front page. This includes the language domain or
+ *   prefix.
+ * - $logo: The path to the logo image, as defined in theme configuration.
+ * - $site_name: The name of the site, empty when display has been disabled
+ *   in theme settings.
+ * - $site_slogan: The slogan of the site, empty when display has been disabled
+ *   in theme settings.
+ *
+ * Navigation:
+ * - $main_menu (array): An array containing the Main menu links for the
+ *   site, if they have been configured.
+ * - $secondary_menu (array): An array containing the Secondary menu links for
+ *   the site, if they have been configured.
+ * - $breadcrumb: The breadcrumb trail for the current page.
+ *
+ * Page content (in order of occurrence in the default page.tpl.php):
+ * - $title_prefix (array): An array containing additional output populated by
+ *   modules, intended to be displayed in front of the main title tag that
+ *   appears in the template.
+ * - $title: The page title, for use in the actual HTML content.
+ * - $title_suffix (array): An array containing additional output populated by
+ *   modules, intended to be displayed after the main title tag that appears in
+ *   the template.
+ * - $messages: HTML for status and error messages. Should be displayed
+ *   prominently.
+ * - $tabs (array): Tabs linking to any sub-pages beneath the current page
+ *   (e.g., the view and edit tabs when displaying a node).
+ * - $action_links (array): Actions local to the page, such as 'Add menu' on the
+ *   menu administration interface.
+ * - $feed_icons: A string of all feed icons for the current page.
+ * - $node: The node object, if there is an automatically-loaded node
+ *   associated with the page, and the node ID is the second argument
+ *   in the page's path (e.g. node/12345 and node/12345/revisions, but not
+ *   comment/reply/12345).
+ *
+ * Regions:
+ * - $page['help']: Dynamic help text, mostly for admin pages.
+ * - $page['highlighted']: Items for the highlighted content region.
+ * - $page['content']: The main content of the current page.
+ * - $page['sidebar_first']: Items for the first sidebar.
+ * - $page['sidebar_second']: Items for the second sidebar.
+ * - $page['header']: Items for the header region.
+ * - $page['footer']: Items for the footer region.
+ *
+ * @see template_preprocess()
+ * @see template_preprocess_page()
+ * @see template_process()
+ * @see html.tpl.php
+ *
+ * @ingroup themeable
+ */
+?>
+
   <div id="page">
-    <?php /* if (!empty($navigation)): ?>
-      <div id="navigation">
-        <?php print $navigation; ?>
-      </div>
-    <?php endif; */ ?>
-
     <div id="left">
       <div id="header" class="clear-both">
         <div id="site-title">
-          <?php if (!empty($logo)): ?>
+          <?php if ($logo): ?>
             <div id="logo">
               <a href="<?php print $front_page; ?>" title="<?php print t('Home'); ?>" rel="home">
                 <img src="<?php print $logo; ?>" alt="<?php print t('Home'); ?>" />
@@ -51,9 +86,9 @@
           <?php endif; ?>
         </div>
 
-        <?php if (!empty($header)): ?>
+        <?php if ($page['header']): ?>
           <div id="header-region">
-            <?php print $header; ?>
+            <?php print render($page['header']); ?>
           </div>
         <?php endif; ?>
 
@@ -61,17 +96,17 @@
       </div>
 
       <div id="wrapper" class="clear-both"><div id="wrapper-inner">
-        <?php if (!empty($primary_links)): ?>
+        <?php if ($main_menu): ?>
           <div id="primary">
-            <?php print menu_tree($menu_name = 'primary-links'); ?>
+            <?php print render(menu_tree('main-menu')); ?>
             <div class="clear-both"><!-- --></div>
           </div>
           <div class="clear-both"><!-- --></div>
         <?php endif; ?>
 
-        <?php if (!empty($main_top)): ?>
+        <?php if ($page['main_top']): ?>
           <div id="main-top">
-            <?php print $main_top; ?>
+            <?php print render($page['main_top']) ?>
           </div>
         <?php endif; ?>
         
@@ -82,43 +117,43 @@
         <?php endif; ?>
 
         <div id="main">
-          <?php if (!empty($content_top)): ?>
+          <?php if ($page['sidebar_right']): ?>
             <div id="content-top">
-              <?php print $content_top; ?>
+              <?php print render($page['sidebar_right']); ?>
             </div>
           <?php endif; ?>
 
           <?php if (!$is_front): ?>
             <div id="content" class="clear-both">
               <?php if (!empty($title)): ?><h1 class="title" id="page-title"><?php print $title; ?></h1><?php endif; ?>
-              <?php if (!empty($tabs)): ?><div class="tabs"><?php print $tabs; ?></div><?php endif; ?>
+              <?php if ($tabs): ?><div class="tabs"><?php print render($tabs) ?></div><?php endif; ?>
               <div class="clear-both"><!-- --></div>
-              <?php if (!empty($messages)): print $messages; endif; ?>
-              <?php if (!empty($help)): print $help; endif; ?>
+              <?php if ($messages): print $messages; endif; ?>
+              <?php if ($page['help']): print render($page['help']); endif; ?>
               <div id="content-content" class="clear-both">
-                <?php print $content; ?>
+                <?php print render($page['content']); ?>
               </div>
               <?php print $feed_icons; ?>
             </div>
           <?php endif; ?>
 
-          <?php if (!empty($content_split_left) || !empty($content_split_right)): ?>
+          <?php if ($page['content_split_left'] || $page['content_split_right']): ?>
             <div id="content-split" class="clear-both">
               <div id="content-split-left">
-                <?php print $content_split_left; ?>
+                <?php print render($page['content_split_left']); ?>
               </div>
 
               <div id="content-split-right">
-                <?php print $content_split_right; ?>
+                <?php print render($page['content_split_right']); ?>
               </div>
 
               <div class="clear-both"><!-- --></div>
             </div>
           <?php endif; ?>
 
-          <?php if (!empty($content_bottom)): ?>
+          <?php if ($page['content_bottom']): ?>
             <div id="content-bottom" class="clear-both">
-              <?php print $content_bottom; ?>
+              <?php print render($page['content_bottom']); ?>
             </div>
           <?php endif; ?>
         </div>
@@ -127,10 +162,10 @@
       </div></div>
     </div>
 
-    <?php if (!empty($banner_right)): ?>
+    <?php if ($page['banner_right']): ?>
       <div id="right">
         <div id="banner-right">
-          <?php print $banner_right; ?>
+          <?php print render($page['banner_right']); ?>
         </div>
       </div>
 
@@ -144,6 +179,3 @@
     <?php endif; ?>
   </div>
 
-  <?php print $closure; ?>
-</body>
-</html>
