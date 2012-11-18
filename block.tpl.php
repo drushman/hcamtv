@@ -4,6 +4,6 @@
   <?php endif;?>
 
   <div class="block-content content">
-    <?php print $block->content; ?>
+    <?php print $content; ?>
   </div>
 </div>

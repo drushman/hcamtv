@@ -20,7 +20,7 @@
 
   <?php if ($content['links']): ?>
     <div class="node-links clear-both">
-      <?php print $content['links']; ?>
+      <?php print render($content['links']); ?>
     </div>
   <?php endif; ?>
   <?php print render($content['comments']); ?>
