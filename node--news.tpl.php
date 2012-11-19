@@ -3,9 +3,9 @@
     <h2 class="node-title"><a href="<?php print $node_url; ?>" title="<?php print $title; ?>"><?php print $title; ?></a></h2>
   <?php endif; ?>
 
-  <?php print $picture; ?>
+  <?php print $user_picture; ?>
 
-  <?php if ($submitted): ?>
+  <?php if ($display_submitted): ?>
     <div class="meta">
       <div class="submitted">
         <?php
@@ -15,7 +15,7 @@
         ?>
       </div>
       <div class="fb-like">
-        <iframe src="http://www.facebook.com/plugins/like.php?href=<?php print url($node->path, array('absolute' => TRUE)); ?>&layout=standard&show_faces=false&width=300&action=recommend&font&colorscheme=light&height=35" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:300px; height:35px;" allowTransparency="true"></iframe>
+        <iframe src="http://www.facebook.com/plugins/like.php?href=<?php print url(variable_get('file_public_path', conf_path() . '/files'), array('absolute' => TRUE)); ?>&layout=standard&show_faces=false&width=300&action=recommend&font&colorscheme=light&height=35" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:300px; height:35px;" allowTransparency="true"></iframe>
       </div>
       <div class="clear-both"><!-- --></div>
     </div>
@@ -23,12 +23,12 @@
 
   <div class="content clear-both">
     <?php (($teaser) ? print '<div class="field-field-image">'. $node->field_image[0]['view'] .'</div>' : ''); ?>
-    <?php print $content; ?>
+    <?php print render($content); ?>
   </div>
 
-  <?php if (!empty($links)): ?>
+  <?php if ($content['links']): ?>
     <div class="node-links clear-both">
-      <?php print $links; ?>
+      <?php print render($content['links']); ?>
     </div>
   <?php endif; ?>
 </div>

@@ -110,16 +110,16 @@
           </div>
         <?php endif; ?>
         
-        <?php if (!empty($sidebar_right)): ?>
+        <?php if ($page['sidebar_right']): ?>
           <div id="sidebar-right">
-            <?php print $sidebar_right; ?>
+            <?php print render($page['sidebar_right']); ?>
           </div>
         <?php endif; ?>
 
         <div id="main">
-          <?php if ($page['sidebar_right']): ?>
+          <?php if ($page['content_top']): ?>
             <div id="content-top">
-              <?php print render($page['sidebar_right']); ?>
+              <?php print render($page['content_top']); ?>
             </div>
           <?php endif; ?>
 

@@ -28,7 +28,6 @@
       <?php
       global $base_url;
       $playlistFile = variable_get('file_public_path', conf_path() . '/files')  . '/videos/playlists/' . $node->nid . '.xml';
-      dsm($playlistFile);dsm($node->field_video['und'][0]['url']);
       $image_url = file_create_url($node->field_image['und'][0]['uri']);
       if (file_exists($playlistFile)):
       ?>

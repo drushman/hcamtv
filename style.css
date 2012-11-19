@@ -164,7 +164,7 @@ td, th {
 #page {
   margin: 0 auto;
   padding: 0 10px;
-  width: 875px;
+  width: 1005px;
 }
 body.banner-right #page {
   width: 1005px;
@@ -195,7 +195,7 @@ body.banner-right #page {
 body.sidebar-right #wrapper-inner {
   background: url(images/sidebar-right.png) repeat-y top left;
 }
-body.sidebar-right #main {
+#main {
   float: right;
   width: 572px;
 }
@@ -211,11 +211,11 @@ body.front-page #content {
 #content-split-left {
   border-right: 1px solid #000;
   float: left;
-  width: 436px;
+  /*width: 436px;*/
 }
 #content-split-right {
   float: right;
-  width: 436px;
+  /*width: 436px;*/
 }
 #sidebar-right {
   float: left;
@@ -223,7 +223,7 @@ body.front-page #content {
 }
 body.sidebar-right #content-split-left,
 body.sidebar-right #content-split-right {
-  width: 285px;
+  width: 285px!important;
 }
 #right {
   float: right;
