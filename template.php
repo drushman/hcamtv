@@ -48,3 +48,16 @@ function hcamtv_body_class($is_front, $logged_in, $is_admin, $node, $sidebar_rig
 
   return $class;
 }
+
+function hcamtv_preprocess_html(&$vars) {
+  $class = '';
+  if (!empty($vars['page']['sidebar_right'])) {
+    $class .= ' sidebar-right';
+  }
+  if (!empty($vars['page']['banner_right'])) {
+    $class .= ' banner-right';
+  }
+  $vars['classes_array'][] = $class;
+}
+
+

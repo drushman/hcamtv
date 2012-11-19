@@ -195,7 +195,7 @@ body.banner-right #page {
 body.sidebar-right #wrapper-inner {
   background: url(images/sidebar-right.png) repeat-y top left;
 }
-#main {
+body.sidebar-right #main {
   float: right;
   width: 572px;
 }
@@ -1245,4 +1245,16 @@ a.fisheyeItem span {
   font-size: 0.917em;
   line-height: 1.25em;
   margin-top: 0;
+}
+
+
+ul.links {
+  margin: 0;
+  padding: 0;
+}
+
+ul.links li {
+  display: inline;
+  list-style-type: none;
+  padding: 0 0.5em;
 }
