@@ -48,7 +48,7 @@
 
 <head profile="<?php print $grddl_profile; ?>">
   <?php print $head; ?>
-  <title><?php print $head_title; ?></title>
+  <title><?php global $base_path; print $head_title; ?></title>
   <!--[if lte IE 8]>
     <style type="text/css">
       body { behavior: url(<?php print $base_path . path_to_theme() .'/csshover3.htc'; ?>); }

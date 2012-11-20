@@ -757,7 +757,7 @@ td.revision-current {
   color: #999;
   font-size: 0.917em;
 }
-.node .picture {
+.node .user-picture {
   float: left;
   margin: 0 1em 1em 0;
 }

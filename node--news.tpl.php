@@ -3,7 +3,7 @@
     <h2 class="node-title"><a href="<?php print $node_url; ?>" title="<?php print $title; ?>"><?php print $title; ?></a></h2>
   <?php endif; ?>
 
-  <?php print $user_picture; dsm($content['field_image']);?>
+  <?php print $user_picture;?>
 
   <?php if ($display_submitted): ?>
     <div class="meta">
@@ -22,13 +22,12 @@
   <?php endif; ?>
 
   <div class="content clear-both">
-    <?php (($teaser) ? print '<div class="field-field-image">'. render($content['field_image']) .'</div>' : ''); ?>
-    <?php print render($content); ?>
+    <?php
+          hide($content['comments']);
+          print render($content);
+     ?>
   </div>
-
-  <?php if ($content['links']): ?>
-    <div class="node-links clear-both">
-      <?php print render($content['links']); ?>
-    </div>
-  <?php endif; ?>
+   <?php kpr($content['comments']); ?>
+    
+  
 </div>

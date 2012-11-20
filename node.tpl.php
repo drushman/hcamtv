@@ -23,5 +23,5 @@
       <?php print render($content['links']); ?>
     </div>
   <?php endif; ?>
-  <?php print render($content['comments']); ?>
+  <?php  print render($content['comments']); ?>
 </div>
