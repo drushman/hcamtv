@@ -164,7 +164,7 @@ td, th {
 #page {
   margin: 0 auto;
   padding: 0 10px;
-  width: 1005px;
+  width: 875px;
 }
 body.banner-right #page {
   width: 1005px;
@@ -1260,4 +1260,25 @@ ul.links li {
   display: inline;
   list-style-type: none;
   padding: 0 0.5em;
+}
+
+
+/***--------------VC CSS--------------*/
+#comments {
+	float: left;
+	width: 96%;
+	background: #FBFBFB;
+	border: 1px solid #CCC;
+	margin-bottom: 10px;
+	padding: 10px;
+}
+
+.view-schedule .fieldset-wrapper {
+    display: none;
+}
+
+.view-schedule fieldset.collapsed {
+    border-bottom: none;
+    border-left: none;
+    border-right: none;
 }

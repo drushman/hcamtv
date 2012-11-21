@@ -478,6 +478,20 @@ $(document).ready(function() {
     halign: 'center'
   });
   */
+ 
+  //vc js
+  $(".view-schedule fieldset.collapsible").addClass('collapsed');
+  
+  $(".view-schedule legend.collapse-processed a").toggle(
+      function () {
+        $(".view-schedule .fieldset-wrapper").show().slideDown('fast');
+        $(".view-schedule fieldset.collapsible").removeClass('collapsed');
+      },
+      function () {
+        $(".view-schedule .fieldset-wrapper").hide().slideUp('fast');
+        $(".view-schedule fieldset.collapsible").addClass('collapsed');
+      }
+  );
 
   // Initialise Superfish drop down menu.
   $('#primary ul').superfish({

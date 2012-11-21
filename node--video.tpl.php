@@ -26,7 +26,7 @@
         <?php else: ?>
           <param name="flashvars" value="playlistfile=<?php print $base_url . '/' . $playlistFile; ?>&playlist=right&playlistsize=240&skin=<?php print $base_url . '/' . path_to_theme() . '/mediaplayer/skins/beelden/beelden.xml'; ?>&autostart=false&volume=100&repeat=always&plugins=gapro-1&gapro.accountid=UA-7486791-1" />
           <embed type="application/x-shockwave-flash" id="player2" wmode="transparent" name="player2" src="<?php print $base_url . '/' . path_to_theme() . '/mediaplayer/player.swf'; ?>" width="850" height="450" allowscriptaccess="always" allowfullscreen="true" flashvars="playlistfile=<?php print $base_url . '/' . $playlistFile; ?>&playlist=right&playlistsize=240&skin=<?php print $base_url . '/' . path_to_theme() . '/mediaplayer/skins/beelden/beelden.xml'; ?>&autostart=false&volume=100&repeat=always&plugins=gapro-1&gapro.accountid=UA-7486791-1" />
-        <?php endif ?>
+        <?php endif; ?>
       </object>
     <?php endif; clearstatcache(); ?>
 
