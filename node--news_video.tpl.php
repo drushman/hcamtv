@@ -48,7 +48,7 @@
           <param name="allowfullscreen" value="true" />
           <param name="allowscriptaccess" value="always" />
           <param name="wmode" value="transparent">
-          <?php if (count($node->field_video) == 1): ?>
+          <?php if (count($node->field_video['und']) == 1): ?>
             <param name="flashvars" value="file=<?php print $base_url . '/' . $node->field_video['und'][0]['url']; ?><?php print (count($node->field_image) > 0) ? '&image=' . $image_url : '' ?>&skin=<?php print $base_url . '/' . path_to_theme() . '/mediaplayer/skins/beelden/beelden.xml'; ?>&autostart=false&volume=100&plugins=gapro-1&gapro.accountid=UA-7486791-1" />
             <embed type="application/x-shockwave-flash" id="player2" wmode="transparent" name="player2" src="<?php print $base_url . '/' . path_to_theme() . '/mediaplayer/player.swf'; ?>" width="850" height="450" allowscriptaccess="always" allowfullscreen="true" flashvars="file=<?php print $base_url . '/' . $node->field_video['und'][0]['url']; ?><?php print (count($node->field_image) > 0) ? '&image=' . $image_url : '' ?>&skin=<?php print $base_url . '/' . path_to_theme() . '/mediaplayer/skins/beelden/beelden.xml'; ?>&autostart=false&volume=100&plugins=gapro-1&gapro.accountid=UA-7486791-1" />
           <?php else: ?>
