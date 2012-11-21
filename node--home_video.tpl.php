@@ -22,7 +22,7 @@
         </object>
       <?php endif; clearstatcache(); ?>
 
-      <?php print $node->content['body']['#value']; ?>
+      <?php print $node->body['und'][0]['#value']; ?>
     </div>
   <?php else: ?>
     <?php print $user_picture; ?>
