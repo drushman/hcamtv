@@ -22,7 +22,7 @@
         </object>
       <?php endif; clearstatcache(); ?>
 
-      <?php print $node->body['und'][0]['#value']; ?>
+      <?php print $node->body['und'][0]['safe_value']; ?>
     </div>
   <?php else: ?>
     <?php print $user_picture; ?>
@@ -57,7 +57,7 @@
         </object>
       <?php endif; clearstatcache(); ?>
 
-      <?php print $node->body['und'][0]['value']; ?>
+      <?php print $node->body['und'][0]['safe_value']; ?>
     </div>
 
     <?php if ($content['links']): ?>
