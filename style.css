@@ -781,6 +781,9 @@ td.revision-current {
 .node .terms ul.links li.last:after {
   content: "";
 }
+
+.node-news .field-name-field-image,
+.node-news_video .field-name-field-image,
 .node-news .field-field-image,
 .node-news_video .field-field-image {
   float: right;

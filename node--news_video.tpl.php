@@ -1,5 +1,5 @@
 <div id="node-<?php print $node->nid; ?>" class="node<?php if ($sticky) { print ' sticky'; } ?><?php if (!$status) { print ' node-unpublished'; } ?> node-<?php print $type; ?> node<?php print ($page) ? '-page' : '-teaser'; ?> node-<?php print $type; ?><?php print ($page) ? '-page' : '-teaser'; ?> clear-both">
-  <?php print $user_picture; dsm($node);?>
+  <?php print $user_picture; ?>
 
   <?php if (!$page): ?>
     <h2 class="node-title"><a href="<?php print $node_url; ?>" title="<?php print $title; ?>"><?php print $title; ?></a></h2>
@@ -21,10 +21,22 @@
   <?php endif; ?>
 
   <div class="content">
-    <?php (($teaser) ? print '<div class="field-field-image">'. $node->field_image[0]['view'] .'</div>' : ''); ?>
-    <?php print $node->body['und'][0]['value']; ?>
-
+    <?php if ($teaser): ?>
+      <?php 
+        $option = array (
+          'style_name' => 'news_preview',
+          'path' => $node->field_image['und'][0]['uri'],
+          'alt' => $node->field_image['und'][0]['alt'],
+          'title' => $node->field_image['und'][0]['title']
+        );
+      ?>
+      <?php print '<div class="field-field-image">'. theme('image_style', $option) . '</div>' ?>
+      <?php empty($node->body['und'][0]['safe_summary']) ? print $node->body['und'][0]['safe_value'] : print $node->body['und'][0]['safe_summary']; ?>
+    <?php endif; ?>
+    
+    
     <?php if ($page): ?>
+      <?php print $node->body['und'][0]['safe_value']; ?>
       <?php
       global $base_url;
       $playlistFile = variable_get('file_public_path', conf_path() . '/files')  . '/videos/playlists/' . $node->nid . '.xml';
@@ -53,4 +65,5 @@
       <?php print render($content['links']); ?>
     </div>
   <?php endif; ?>
+  <?php print render($content['comments']); ?>
 </div>

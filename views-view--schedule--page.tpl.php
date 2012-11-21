@@ -30,11 +30,7 @@
  */
 ?>
 <div class="<?php print $classes; ?>">
-  <?php if ($admin_links): ?>
-    <div class="views-admin-links views-hide">
-      <?php print $admin_links; ?>
-    </div>
-  <?php endif; ?>
+  
   <?php if ($header): ?>
     <div class="view-header">
       <?php print $header; ?>
@@ -48,11 +44,13 @@
       $collapsed = TRUE;
     }
     ?>
-    <fieldset class="collapsible<?php echo (!$collapsed) ? ' collapsed' : ''; ?>">
-      <legend><?php print t('Search Schedule'); ?></legend>
-      <div class="view-filters">
-        <?php print $exposed; ?>
-        <div class="more-link"><a href="<?php print url('schedule'); ?>"><?php print t('Reset search'); ?></a></div>
+    <fieldset class="collapsible">
+      <legend class="collapse-processed"><a href="#"><?php print t('Search Schedule'); ?></a></legend>
+      <div class="fieldset-wrapper">
+        <div class="view-filters">
+          <?php print $exposed; ?>
+          <div class="more-link"><a href="<?php print url('schedule'); ?>"><?php print t('Reset search'); ?></a></div>
+        </div>
       </div>
     </fieldset>
   <?php endif; ?>

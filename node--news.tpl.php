@@ -22,12 +22,17 @@
   <?php endif; ?>
 
   <div class="content clear-both">
-    <?php
-          hide($content['comments']);
-          print render($content);
-     ?>
+  <?php
+    hide($content['comments']);
+    hide($content['links']);
+    print render($content);
+
+    print render($content['comments']);
+  ?>
   </div>
-   <?php kpr($content['comments']); ?>
-    
-  
+  <?php if ($content['links']): ?>
+    <div class="node-links clear-both">
+      <?php print render($content['links']); ?>
+    </div>
+  <?php endif; ?>
 </div>
