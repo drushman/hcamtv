@@ -15,6 +15,7 @@ regions[content_split_right] = Content split right
 regions[content_bottom]      = Content bottom
 regions[sidebar_right]       = Sidebar right
 regions[banner_right]        = Banner right
+regions[footer]        = Footer
 
 features[] = logo
 features[] = node_user_picture

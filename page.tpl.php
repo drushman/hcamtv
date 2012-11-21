@@ -172,9 +172,9 @@
       <div class="clear-both"><!-- --></div>
     <?php endif; ?>
 
-    <?php if (!empty($footer_message)): ?>
+    <?php if ($page['footer']): ?>
       <div id="footer-message" class="clear-both">
-        <?php print $footer_message; ?>
+        <?php print render($page['footer']); ?>
       </div>
     <?php endif; ?>
   </div>
