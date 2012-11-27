@@ -39,7 +39,7 @@
       <?php
       global $base_url;
       $playlistFile = variable_get('file_public_path', conf_path() . '/files') . '/videos/playlists/' . $node->nid . '.xml';
-      
+      $image_url = file_create_url($node->field_image['und'][0]['uri']);
       if (file_exists($playlistFile)):
       ?>
         <object id="player" classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" name="player" width="572" height="322">
